@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %} Todo{% endblock title %}
+{% block body %}
+
+{% for message in get_flashed_messages() %}
+<div class="form-control mb-4 pt-4 alert-danger text-center">
+    {{message}}
+</div>
+
+{% endfor %}
+<div class="container my-3">
+    <h2>All Todos</h2>
+
+    {% if alltodo|length == 0 %}
+    <div class="alert alert-info" role="alert">
+        No Todos found. Add Now.
+    </div>
+
+
+    {% else %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Serial-No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Time</th>
+                {% if current_user.is_admin %}
+                <th scope="col">User</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in alltodo %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created}}</td>
+                {% if current_user.is_admin %}
+                <td>{{todo.username}}</td>
+                {% endif %}
+                <td>
+                    <a href="/update/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Update</a>
+                    <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endif %}
+
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock body %}

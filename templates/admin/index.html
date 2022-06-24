@@ -1,0 +1,20 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+<div class="row" >
+    <div class="col-md-12 shadow-lg" style="padding: 3em">
+        <div class=" text-center">
+            <h1 class="alert alert-dark d-block">Welcome to the admin panel</h1>
+        </div>
+        <div class=" bg-body rounded text-center mt-4">
+            
+            <form method=" POST" action="">
+                <a href="{{url_for('todo')}}" class="alert alert-dark d-block form-control mb-4 text-center"
+                    style="text-decoration:none;">Todos page</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

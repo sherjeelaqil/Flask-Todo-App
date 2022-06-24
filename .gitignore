@@ -1,0 +1,4 @@
+flask1/
+__pycache__/
+.vscode/
+todo.db

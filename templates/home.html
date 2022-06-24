@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<div data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="" style="
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+    background-color: #13294e;
+">
+    <div style="
+    min-height: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+        <div class="row" style="background-color: #fff ;border: 1px solid #13294e">
+            <div class="col-md-12 shadow-lg" style="padding: 3em">
+                <div class=" text-center">
+                    <h1 class="alert alert-primary d-block"> Login Authentication System</h1>
+                </div>
+                <div class=" bg-body rounded">
+                    <form method=" POST" action="">
+                    <a href="{{url_for('login')}}" class="alert alert-dark d-block form-control mb-4 text-center" style="text-decoration:none;">Login Page</a>
+                    <a href="{{url_for('register')}}" class="alert alert-dark d-block form-control mb-4 text-center" style="text-decoration:none;">Register Page</a>
+                    <!-- <a href="/admin" class="alert alert-dark d-block form-control mb-4 text-center" style="text-decoration:none;">Admin Login Page</a> -->
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

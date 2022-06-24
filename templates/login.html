@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Login{% endblock title %}
+{% block body %}
+<div data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="" style="
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+    background-color: #13294e;
+">
+    <div style="
+    min-height: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+        <div class="row" style="background-color: #fff ;border: 1px solid #13294e">
+            <div class="col-md-12 shadow-lg" style="padding: 3em">
+                <div class=" text-center">
+                    <h1 class="alert alert-primary d-block"> Welcome to Todo's</h1>
+                </div>
+                <div class=" bg-body rounded">
+                    <form method="POST" action="{{ url_for('login')}}">
+                        {{form.hidden_tag()}}
+                        {{form.username(class_="form-control mb-4")}}
+                        {{form.password(class_="form-control mb-4")}}
+                        {% if error %}
+                        <div class="form-control mb-4 pt-4 alert-danger text-center">
+                            <p><strong>Error</strong>: {{error}}</p>
+                        </div>
+                        {% endif %}
+                        {{form.submit(class_="btn btn-success w-full")}}
+                    </form>
+                </div>
+
+                <a href="{{url_for('register')}}" class="alert alert-dark d-block m-0">Dont have a account? Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
